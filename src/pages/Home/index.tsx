@@ -47,7 +47,7 @@ export const Home = (): React.ReactElement => {
         </Grid>
         <Grid sm={3} md={3} item>
           <div className={classes.rightSide}>
-{/*           <SearchTextField
+          <SearchTextField
               variant="outlined"
               placeholder="Поиск по Твиттеру"
               InputProps={{
@@ -58,7 +58,7 @@ export const Home = (): React.ReactElement => {
                 ),
               }}
               fullWidth
-            /> */}
+            />
 
             <Paper className={classes.rightSideBlock}>
               <Paper className={classes.rightSideBlockHeader} variant="outlined">
