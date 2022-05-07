@@ -8,7 +8,7 @@ import ListIcon from '@material-ui/icons/ListAltOutlined';
 import UserIcon from '@material-ui/icons/PermIdentityOutlined';
 import { Button, IconButton, Typography } from '@material-ui/core';
 
-import { useHomeStyles } from '../pages/Home';
+import { useHomeStyles } from '../pages/Home/theme';
 
 interface SideMenuProps {
   classes: ReturnType<typeof useHomeStyles>;

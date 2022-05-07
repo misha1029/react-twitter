@@ -5,7 +5,7 @@ import RepostIcon from '@material-ui/icons/RepeatOutlined';
 import LikeIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import ShareIcon from '@material-ui/icons/ReplyOutlined';
 
-import { useHomeStyles } from '../pages/Home';
+import { useHomeStyles } from '../pages/Home/theme';
 import { Avatar, Grid, IconButton, Paper, Typography } from '@material-ui/core';
 
 interface TweetProps {
