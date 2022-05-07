@@ -1,9 +1,8 @@
 import React from 'react';
-import { Container, Grid, InputAdornment, Paper, Typography } from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/SearchOutlined';
+import { Container, Grid,InputAdornment, Paper, Typography } from '@material-ui/core';
 import PersonAddIcon from '@material-ui/icons/PersonAddOutlined';
 import CircularProgress from '@material-ui/core/CircularProgress';
-
+import SearchIcon from '@material-ui/icons/SearchOutlined';
 import ListItem from '@material-ui/core/ListItem/ListItem';
 import Divider from '@material-ui/core/Divider/Divider';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar/ListItemAvatar';
@@ -16,19 +15,13 @@ import { AddTweetForm } from '../../components/AddTweetForm';
 
 import { SideMenu } from '../../components/SideMenu';
 import { useHomeStyles } from './theme';
+import { SearchTextField } from '../../components/SearchTextField';
 
 
 
 
 export const Home = (): React.ReactElement => {
   const classes = useHomeStyles();
-/*   const dispatch = useDispatch();
-  const tweets = useSelector(selectTweetsItems);
-  const isLoading = useSelector(selectIsTweetsLoading);
-
-  React.useEffect(() => {
-    dispatch(fetchTweets());
-  }, [dispatch]); */
 
   return (
     <Container className={classes.wrapper} maxWidth="lg">
@@ -54,6 +47,19 @@ export const Home = (): React.ReactElement => {
         </Grid>
         <Grid sm={3} md={3} item>
           <div className={classes.rightSide}>
+{/*           <SearchTextField
+              variant="outlined"
+              placeholder="Поиск по Твиттеру"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon />
+                  </InputAdornment>
+                ),
+              }}
+              fullWidth
+            /> */}
+
             <Paper className={classes.rightSideBlock}>
               <Paper className={classes.rightSideBlockHeader} variant="outlined">
                 <b>Актуальные темы</b>
