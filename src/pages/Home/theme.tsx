@@ -151,7 +151,7 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-  },
+  }, 
   addFormBottomActions: {
     marginTop: 10,
     paddingLeft: 70,
