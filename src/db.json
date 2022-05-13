@@ -1,4 +1,5 @@
-{"items": [
+{
+  "items": [
     {
       "id": "627bdf1d569dc666c40493a9",
       "text": "Eiusmod officia anim non proident. Lorem exercitation tempor mollit non qui est excepteur.",
@@ -44,5 +45,29 @@
         "avatarUrl": "https://source.unsplash.com/random/100x100?3"
       }
     }
-  ]
+  ],
+  "themes": [
+    { "_id": "5981","name": "Popular news", "count": 7829 },
+    { "_id": "5982","name": "Youtube storis", "count": 12516 },
+    { "_id": "5983","name": "Like You", "count": 543 }
+  ],
+  "users": [
+    {
+      "fullname": "Ernestine Dotson",
+      "username": "ofelia",
+      "avatarUrl": "https://source.unsplash.com/random/100x100?1"
+    },
+    {
+      "fullname": "Monica Hyde",
+      "username": "lindsay",
+      "avatarUrl": "https://source.unsplash.com/random/100x100?4"
+    }
+  ],
+
+  "user": {
+    "_id": "598",
+    "fullname": "Monica Hyde Test",
+    "username": "lindsay",
+    "avatarUrl": "https://source.unsplash.com/random/100x100?4"
+  }
 }

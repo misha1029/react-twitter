@@ -20,6 +20,9 @@ import { SearchTextField } from '../../components/SearchTextField';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTweets } from '../../store/ducks/tweets/actionCreators';
 import { selectIsTweetsLoading, selectTweetsItems } from '../../store/ducks/tweets/selectors';
+import { fetchTags } from '../../store/ducks/tags/actionCreators';
+import { Tags } from '../../components/Tags';
+import { Route } from 'react-router-dom';
 
 
 
@@ -31,6 +34,7 @@ export const Home = (): React.ReactElement => {
 
   React.useEffect(() => {
     dispatch(fetchTweets());
+    dispatch(fetchTags());
   }, [dispatch]);
 
   return (
@@ -50,6 +54,7 @@ export const Home = (): React.ReactElement => {
               </div>
               <div className={classes.addFormBottomLine} />
             </Paper>
+            <Route path="/home" exact>
             {isLoading ? (
               <div className={classes.tweetsCentred}>
                 <CircularProgress />
@@ -59,6 +64,7 @@ export const Home = (): React.ReactElement => {
                 <Tweet key={tweet._id} text={tweet.text} user={tweet.user} classes={classes} />
               ))
             )}
+            </Route>
           </Paper>
         </Grid>
         <Grid sm={3} md={3} item>
@@ -75,46 +81,7 @@ export const Home = (): React.ReactElement => {
               }}
               fullWidth
             />
-            <Paper className={classes.rightSideBlock}>
-              <Paper className={classes.rightSideBlockHeader} variant="outlined">
-                <b>Актуальные темы</b>
-              </Paper>
-              <List>
-                <ListItem className={classes.rightSideBlockItem}>
-                  <ListItemText
-                    primary="Санкт-Петербург"
-                    secondary={
-                      <Typography component="span" variant="body2" color="textSecondary">
-                        Твитов: 3 331
-                      </Typography>
-                    }
-                  />
-                </ListItem>
-                <Divider component="li" />
-                <ListItem className={classes.rightSideBlockItem}>
-                  <ListItemText
-                    primary="#коронавирус"
-                    secondary={
-                      <Typography component="span" variant="body2" color="textSecondary">
-                        Твитов: 163 122
-                      </Typography>
-                    }
-                  />
-                </ListItem>
-                <Divider component="li" />
-                <ListItem className={classes.rightSideBlockItem}>
-                  <ListItemText
-                    primary="Беларусь"
-                    secondary={
-                      <Typography component="span" variant="body2" color="textSecondary">
-                        Твитов: 13 554
-                      </Typography>
-                    }
-                  />
-                </ListItem>
-                <Divider component="li" />
-              </List>
-            </Paper>
+            <Tags classes = {classes}/>
             <Paper className={classes.rightSideBlock}>
               <Paper className={classes.rightSideBlockHeader} variant="outlined">
                 <b>Кого читать</b>
@@ -128,10 +95,10 @@ export const Home = (): React.ReactElement => {
                     />
                   </ListItemAvatar>
                   <ListItemText
-                    primary="Dock Of Shame"
+                    primary="Nori Norton"
                     secondary={
                       <Typography component="span" variant="body2" color="textSecondary">
-                        @FavDockOfShame
+                        @Norton1
                       </Typography>
                     }
                   />
