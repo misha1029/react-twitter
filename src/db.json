@@ -1,0 +1,48 @@
+{"items": [
+    {
+      "id": "627bdf1d569dc666c40493a9",
+      "text": "Eiusmod officia anim non proident. Lorem exercitation tempor mollit non qui est excepteur.",
+      "user": {
+        "fullname": "Ernestine Dotson",
+        "username": "ofelia",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?1"
+      }
+    },
+    {
+      "id": "627bdf1dcf38d66258456cd9",
+      "text": "Elit sint incididunt officia est. Eu exercitation ut ex adipisicing nisi anim elit.",
+      "user": {
+        "fullname": "Monica Hyde",
+        "username": "lindsay",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?4"
+      }
+    },
+    {
+      "id": "627bdf1d59568ae7597e7055",
+      "text": "Culpa ipsum magna in ipsum exercitation. Veniam deserunt ex labore fugiat sit aliquip eu et ut veniam eiusmod.",
+      "user": {
+        "fullname": "Francesca Eaton",
+        "username": "snow",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?4"
+      }
+    },
+    {
+      "id": "627bdf1dc6245f025cccc4a8",
+      "text": "Nisi amet irure do fugiat do qui laboris magna mollit sit irure mollit minim cillum. Quis non nisi duis consequat veniam.",
+      "user": {
+        "fullname": "Nixon Day",
+        "username": "sasha",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?2"
+      }
+    },
+    {
+      "id": "627bdf1d0c3b569e6fbe93db",
+      "text": "Cillum labore qui nostrud incididunt ad sint consectetur ut. Enim deserunt nulla consequat cupidatat do quis occaecat deserunt ipsum ipsum fugiat enim.",
+      "user": {
+        "fullname": "Imogene Ayers",
+        "username": "nelda",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?3"
+      }
+    }
+  ]
+}

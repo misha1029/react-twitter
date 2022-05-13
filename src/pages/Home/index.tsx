@@ -1,8 +1,9 @@
 import React from 'react';
-import { Container, Grid,InputAdornment, Paper, Typography } from '@material-ui/core';
+import { Container, Grid, InputAdornment, Paper, Typography } from '@material-ui/core';
+import SearchIcon from '@material-ui/icons/SearchOutlined';
 import PersonAddIcon from '@material-ui/icons/PersonAddOutlined';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import SearchIcon from '@material-ui/icons/SearchOutlined';
+
 import ListItem from '@material-ui/core/ListItem/ListItem';
 import Divider from '@material-ui/core/Divider/Divider';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar/ListItemAvatar';
@@ -12,16 +13,25 @@ import List from '@material-ui/core/List/List';
 import Button from '@material-ui/core/Button/Button';
 
 import { AddTweetForm } from '../../components/AddTweetForm';
-
+import { Tweet } from '../../components/Tweet';
 import { SideMenu } from '../../components/SideMenu';
 import { useHomeStyles } from './theme';
 import { SearchTextField } from '../../components/SearchTextField';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchTweets } from '../../store/ducks/tweets/actionCreators';
+import { selectIsTweetsLoading, selectTweetsItems } from '../../store/ducks/tweets/selectors';
 
 
 
 export const Home = (): React.ReactElement => {
   const classes = useHomeStyles();
+  const dispatch = useDispatch();
+  const tweets = useSelector(selectTweetsItems);
+  const isLoading = useSelector(selectIsTweetsLoading);
+
+  React.useEffect(() => {
+    dispatch(fetchTweets());
+  }, [dispatch]);
 
   return (
     <Container className={classes.wrapper} maxWidth="lg">
@@ -40,14 +50,20 @@ export const Home = (): React.ReactElement => {
               </div>
               <div className={classes.addFormBottomLine} />
             </Paper>
+            {isLoading ? (
               <div className={classes.tweetsCentred}>
                 <CircularProgress />
               </div>
+            ) : (
+              tweets.map((tweet) => (
+                <Tweet key={tweet._id} text={tweet.text} user={tweet.user} classes={classes} />
+              ))
+            )}
           </Paper>
         </Grid>
         <Grid sm={3} md={3} item>
           <div className={classes.rightSide}>
-          <SearchTextField
+            <SearchTextField
               variant="outlined"
               placeholder="Поиск по Твиттеру"
               InputProps={{
@@ -59,7 +75,6 @@ export const Home = (): React.ReactElement => {
               }}
               fullWidth
             />
-
             <Paper className={classes.rightSideBlock}>
               <Paper className={classes.rightSideBlockHeader} variant="outlined">
                 <b>Актуальные темы</b>
@@ -67,7 +82,7 @@ export const Home = (): React.ReactElement => {
               <List>
                 <ListItem className={classes.rightSideBlockItem}>
                   <ListItemText
-                    primary="Киев"
+                    primary="Санкт-Петербург"
                     secondary={
                       <Typography component="span" variant="body2" color="textSecondary">
                         Твитов: 3 331
@@ -78,7 +93,7 @@ export const Home = (): React.ReactElement => {
                 <Divider component="li" />
                 <ListItem className={classes.rightSideBlockItem}>
                   <ListItemText
-                    primary="#хештег"
+                    primary="#коронавирус"
                     secondary={
                       <Typography component="span" variant="body2" color="textSecondary">
                         Твитов: 163 122
@@ -89,7 +104,7 @@ export const Home = (): React.ReactElement => {
                 <Divider component="li" />
                 <ListItem className={classes.rightSideBlockItem}>
                   <ListItemText
-                    primary="Украина"
+                    primary="Беларусь"
                     secondary={
                       <Typography component="span" variant="body2" color="textSecondary">
                         Твитов: 13 554
@@ -108,15 +123,15 @@ export const Home = (): React.ReactElement => {
                 <ListItem className={classes.rightSideBlockItem}>
                   <ListItemAvatar>
                     <Avatar
-                      alt="Nori Nor"
+                      alt="Remy Sharp"
                       src="https://pbs.twimg.com/profile_images/1267938486566428673/US6KRPbA_normal.jpg"
                     />
                   </ListItemAvatar>
                   <ListItemText
-                    primary="Nori Nor"
+                    primary="Dock Of Shame"
                     secondary={
                       <Typography component="span" variant="body2" color="textSecondary">
-                        @NoriNorrr
+                        @FavDockOfShame
                       </Typography>
                     }
                   />
