@@ -68,6 +68,8 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
     textAlign: 'center',
   },
   tweetsHeader: {
+    display: 'flex',
+    alignItems: 'center',
     borderTop: '0',
     borderLeft: '0',
     borderRight: '0',
@@ -97,6 +99,10 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
     left: -13,
     justifyContent: 'space-between',
     maxWidth: 450,
+  },
+  tweetWrapper: {
+    color: 'inherit',
+    textDecoration: 'none'
   },
   tweetUserName: {
     color: grey[500],

@@ -7,8 +7,10 @@ import ShareIcon from '@material-ui/icons/ReplyOutlined';
 
 import { Avatar, IconButton, Paper, Typography } from '@material-ui/core';
 import { useHomeStyles } from '../pages/Home/theme';
+import { Link } from 'react-router-dom';
 
 interface TweetProps {
+  _id: string;
   text: string;
   classes: ReturnType<typeof useHomeStyles>;
   user: {
@@ -19,12 +21,15 @@ interface TweetProps {
 }
  
 export const Tweet: React.FC<TweetProps> = ({
+  _id,
   text,
   user,
   classes,
 }: TweetProps): React.ReactElement => {
   return (
+    <Link  className={classes.tweetWrapper} to={`/home/tweet/${_id}`}>
     <Paper className={classNames(classes.tweet, classes.tweetsHeader)} variant="outlined">
+      
       <Avatar
         className={classes.tweetAvatar}
         alt={`Аватарка пользователя ${user.fullname}`}
@@ -64,6 +69,8 @@ export const Tweet: React.FC<TweetProps> = ({
           </div>
         </div>
       </div>
+      
     </Paper>
+    </Link>
   );
 };

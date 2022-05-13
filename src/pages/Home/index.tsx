@@ -23,6 +23,7 @@ import { selectIsTweetsLoading, selectTweetsItems } from '../../store/ducks/twee
 import { fetchTags } from '../../store/ducks/tags/actionCreators';
 import { Tags } from '../../components/Tags';
 import { Route } from 'react-router-dom';
+import { BackButton } from '../../components/BackButton';
 
 
 
@@ -46,14 +47,27 @@ export const Home = (): React.ReactElement => {
         <Grid sm={8} md={6} item>
           <Paper className={classes.tweetsWrapper} variant="outlined">
             <Paper className={classes.tweetsHeader} variant="outlined">
-              <Typography variant="h6">Главная</Typography>
+              
+            <Route path="/home/:any">
+                <BackButton />
+            </Route>
+
+            <Route path={['/home', '/home/search']} exact>
+                <Typography variant="h6">Твиты</Typography>
+              </Route>
+              <Route path="/home/tweet">
+                <Typography variant="h6">Твитнуть</Typography>
+              </Route>
             </Paper>
+
+            <Route path={['/home', '/home/search']} exact>
             <Paper>
               <div className={classes.addForm}>
                 <AddTweetForm classes={classes} />
               </div>
               <div className={classes.addFormBottomLine} />
             </Paper>
+            </Route>
             <Route path="/home" exact>
             {isLoading ? (
               <div className={classes.tweetsCentred}>
@@ -61,7 +75,7 @@ export const Home = (): React.ReactElement => {
               </div>
             ) : (
               tweets.map((tweet) => (
-                <Tweet key={tweet._id} text={tweet.text} user={tweet.user} classes={classes} />
+                <Tweet  key={tweet._id}  classes={classes} {...tweet}/>
               ))
             )}
             </Route>

@@ -31,7 +31,7 @@ export const Tags: React.FC<TagsProps> = ({ classes }: TagsProps): React.ReactEl
         {items.map((obj) => (
           <React.Fragment key={obj._id}>
             <ListItem className={classes.rightSideBlockItem}>
-              <Link to={`/home/search?q=${obj.name}`}>
+            <Link to={`/home/search?q=${obj.name}`}>
                 <ListItemText
                   primary={obj.name}
                   secondary={
