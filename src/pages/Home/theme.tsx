@@ -81,6 +81,7 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
   },
   tweet: {
     display: 'flex',
+    alignItems: 'flex-start',
     cursor: 'pointer',
     paddingTop: 15,
     paddingLeft: 20,

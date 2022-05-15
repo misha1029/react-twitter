@@ -1,31 +1,39 @@
-import React from 'react';
-import { Container, Grid, InputAdornment, Paper, Typography } from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/SearchOutlined';
-import PersonAddIcon from '@material-ui/icons/PersonAddOutlined';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import React from "react";
+import {
+  Container,
+  Grid,
+  InputAdornment,
+  Paper,
+  Typography,
+} from "@material-ui/core";
+import SearchIcon from "@material-ui/icons/SearchOutlined";
+import PersonAddIcon from "@material-ui/icons/PersonAddOutlined";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
-import ListItem from '@material-ui/core/ListItem/ListItem';
-import Divider from '@material-ui/core/Divider/Divider';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar/Avatar';
-import ListItemText from '@material-ui/core/ListItemText/ListItemText';
-import List from '@material-ui/core/List/List';
-import Button from '@material-ui/core/Button/Button';
+import ListItem from "@material-ui/core/ListItem/ListItem";
+import Divider from "@material-ui/core/Divider/Divider";
+import ListItemAvatar from "@material-ui/core/ListItemAvatar/ListItemAvatar";
+import Avatar from "@material-ui/core/Avatar/Avatar";
+import ListItemText from "@material-ui/core/ListItemText/ListItemText";
+import List from "@material-ui/core/List/List";
+import Button from "@material-ui/core/Button/Button";
 
-import { AddTweetForm } from '../../components/AddTweetForm';
-import { Tweet } from '../../components/Tweet';
-import { SideMenu } from '../../components/SideMenu';
-import { useHomeStyles } from './theme';
-import { SearchTextField } from '../../components/SearchTextField';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchTweets } from '../../store/ducks/tweets/actionCreators';
-import { selectIsTweetsLoading, selectTweetsItems } from '../../store/ducks/tweets/selectors';
-import { fetchTags } from '../../store/ducks/tags/actionCreators';
-import { Tags } from '../../components/Tags';
-import { Route } from 'react-router-dom';
-import { BackButton } from '../../components/BackButton';
-
-
+import { AddTweetForm } from "../../components/AddTweetForm";
+import { Tweet } from "../../components/Tweet";
+import { SideMenu } from "../../components/SideMenu";
+import { useHomeStyles } from "./theme";
+import { SearchTextField } from "../../components/SearchTextField";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchTweets } from "../../store/ducks/tweets/actionCreators";
+import {
+  selectIsTweetsLoading,
+  selectTweetsItems,
+} from "../../store/ducks/tweets/selectors";
+import { fetchTags } from "../../store/ducks/tags/actionCreators";
+import { Tags } from "../../components/Tags";
+import { Route } from "react-router-dom";
+import { BackButton } from "../../components/BackButton";
+import { FullTweet} from "../../components/FullTweet";
 
 export const Home = (): React.ReactElement => {
   const classes = useHomeStyles();
@@ -47,12 +55,11 @@ export const Home = (): React.ReactElement => {
         <Grid sm={8} md={6} item>
           <Paper className={classes.tweetsWrapper} variant="outlined">
             <Paper className={classes.tweetsHeader} variant="outlined">
-              
-            <Route path="/home/:any">
+              <Route path="/home/:any">
                 <BackButton />
-            </Route>
+              </Route>
 
-            <Route path={['/home', '/home/search']} exact>
+              <Route path={["/home", "/home/search"]} exact>
                 <Typography variant="h6">Твиты</Typography>
               </Route>
               <Route path="/home/tweet">
@@ -60,25 +67,27 @@ export const Home = (): React.ReactElement => {
               </Route>
             </Paper>
 
-            <Route path={['/home', '/home/search']} exact>
-            <Paper>
-              <div className={classes.addForm}>
-                <AddTweetForm classes={classes} />
-              </div>
-              <div className={classes.addFormBottomLine} />
-            </Paper>
+            <Route path={["/home", "/home/search"]} exact>
+              <Paper>
+                <div className={classes.addForm}>
+                  <AddTweetForm classes={classes} />
+                </div>
+                <div className={classes.addFormBottomLine} />
+              </Paper>
             </Route>
             <Route path="/home" exact>
-            {isLoading ? (
-              <div className={classes.tweetsCentred}>
-                <CircularProgress />
-              </div>
-            ) : (
-              tweets.map((tweet) => (
-                <Tweet  key={tweet._id}  classes={classes} {...tweet}/>
-              ))
-            )}
+              {isLoading ? (
+                <div className={classes.tweetsCentred}>
+                  <CircularProgress />
+                </div>
+              ) : (
+                tweets.map((tweet) => (
+                  <Tweet key={tweet._id} classes={classes} {...tweet} />
+                ))
+              )}
             </Route>
+            <Route path="/home/tweet/:id" component={FullTweet} exact />
+
           </Paper>
         </Grid>
         <Grid sm={3} md={3} item>
@@ -95,9 +104,12 @@ export const Home = (): React.ReactElement => {
               }}
               fullWidth
             />
-            <Tags classes = {classes}/>
+            <Tags classes={classes} />
             <Paper className={classes.rightSideBlock}>
-              <Paper className={classes.rightSideBlockHeader} variant="outlined">
+              <Paper
+                className={classes.rightSideBlockHeader}
+                variant="outlined"
+              >
                 <b>Кого читать</b>
               </Paper>
               <List>
@@ -111,7 +123,11 @@ export const Home = (): React.ReactElement => {
                   <ListItemText
                     primary="Nori Norton"
                     secondary={
-                      <Typography component="span" variant="body2" color="textSecondary">
+                      <Typography
+                        component="span"
+                        variant="body2"
+                        color="textSecondary"
+                      >
                         @Norton1
                       </Typography>
                     }
