@@ -1,6 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { TweetsApi } from '../../../services/api/tweetsApi';
-import { addTweet, FetchAddTweetActionInterface, setTweets, setTweetsLoadingState, TweetsActionsType } from './actionCreators';
+import { addTweet, setTweets, setTweetsLoadingState } from './actionCreators';
+import { FetchAddTweetActionInterface, TweetsActionsType } from './contracts/actionTypes';
 import { LoadingState, Tweet } from './contracts/state';
 
 export function* fetchTweetsRequest(): any {
