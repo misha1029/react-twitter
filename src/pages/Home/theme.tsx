@@ -1,47 +1,47 @@
-import { makeStyles, Theme } from '@material-ui/core';
-import grey from '@material-ui/core/colors/grey';
+import { makeStyles, Theme } from "@material-ui/core";
+import grey from "@material-ui/core/colors/grey";
 
 export const useHomeStyles = makeStyles((theme: Theme) => ({
   wrapper: {
-    height: '100vh',
+    height: "100vh",
   },
   logo: {
-    margin: '10px 0',
+    margin: "10px 0",
   },
   logoIcon: {
     fontSize: 36,
   },
   sideMenuList: {
-    position: 'sticky',
+    position: "sticky",
     top: 0,
-    listStyle: 'none',
+    listStyle: "none",
     padding: 0,
     margin: 0,
     maxWidth: 230,
   },
   sideMenuListItem: {
-    cursor: 'pointer',
-    '&:hover': {
-      '& div': {
-        backgroundColor: 'rgba(29, 161, 242, 0.1)',
-        '& h6': {
+    cursor: "pointer",
+    "&:hover": {
+      "& div": {
+        backgroundColor: "rgba(29, 161, 242, 0.1)",
+        "& h6": {
           color: theme.palette.primary.main,
         },
-        '& svg path': {
+        "& svg path": {
           fill: theme.palette.primary.main,
         },
       },
     },
 
-    '& div': {
-      display: 'inline-flex',
-      alignItems: 'center',
-      position: 'relative',
-      padding: '0 25px 0 20px',
+    "& div": {
+      display: "inline-flex",
+      alignItems: "center",
+      position: "relative",
+      padding: "0 25px 0 20px",
       borderRadius: 30,
       height: 50,
       marginBottom: 15,
-      transition: 'background-color 0.1s ease-in-out',
+      transition: "background-color 0.1s ease-in-out",
     },
   },
   sideMenuListItemLabel: {
@@ -59,34 +59,51 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
   },
   tweetsWrapper: {
     borderRadius: 0,
-    height: '100%',
-    borderTop: '0',
-    borderBottom: '0',
+    height: "100%",
+    borderTop: "0",
+    borderBottom: "0",
   },
   tweetsCentred: {
     marginTop: 50,
-    textAlign: 'center',
+    textAlign: "center",
   },
   tweetsHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    borderTop: '0',
-    borderLeft: '0',
-    borderRight: '0',
+    display: "flex",
+    alignItems: "center",
+    borderTop: "0",
+    borderLeft: "0",
+    borderRight: "0",
     borderRadius: 0,
-    padding: '10px 15px',
-    '& h6': {
+    padding: "10px 15px",
+    "& h6": {
       fontWeight: 800,
     },
   },
+
+  fullTweet: {
+    padding: 20,
+  },
+
+  fullTweetText: {
+    fontSize: 24,
+    marginTop: 19,
+    lineHeight: 1.3125,
+    wordBreak: "break-word",
+    marginBottom: 2,
+  },
+  tweetsHeaderUser: {
+    display: "flex",
+    alignItems: "center",
+  },
+
   tweet: {
-    display: 'flex',
-    alignItems: 'flex-start',
-    cursor: 'pointer',
+    display: "flex",
+    alignItems: "flex-start",
+    cursor: "pointer",
     paddingTop: 15,
     paddingLeft: 20,
-    '&:hover': {
-      backgroundColor: 'rgb(245, 248, 250)',
+    "&:hover": {
+      backgroundColor: "rgb(245, 248, 250)",
     },
   },
   tweetAvatar: {
@@ -95,29 +112,48 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
     marginRight: 15,
   },
   tweetFooter: {
-    display: 'flex',
-    position: 'relative',
-    left: -13,
-    justifyContent: 'space-between',
+    display: "flex",
+    justifyContent: "space-between",
+    marginTop: 20,
     maxWidth: 450,
   },
+  FulltweetFooter: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-around",
+    marginTop: 20,
+    borderBottom: "1px solid rgb(204, 214, 221)",
+    borderTop: "1px solid rgb(204, 214, 221)",
+  },
+
+  infoTweet: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  text: { color: 'rgb(29, 161, 242)', cursor: "pointer" },
+  info: {
+    marginTop: 15,
+    color: grey[500],
+
+  },
+
   tweetWrapper: {
-    color: 'inherit',
-    textDecoration: 'none'
+    color: "inherit",
+    textDecoration: "none",
   },
   tweetUserName: {
     color: grey[500],
   },
   rightSide: {
     paddingTop: 20,
-    position: 'sticky',
+    position: "sticky",
     top: 0,
   },
   rightSideBlock: {
-    backgroundColor: '#F5F8FA',
+    backgroundColor: "#F5F8FA",
     borderRadius: 15,
     marginTop: 20,
-    '& .MuiList-root': {
+    "& .MuiList-root": {
       paddingTop: 0,
     },
   },
@@ -125,72 +161,71 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
     borderTop: 0,
     borderLeft: 0,
     borderRight: 0,
-    backgroundColor: 'transparent',
-    padding: '13px 18px',
-    '& b': {
+    backgroundColor: "transparent",
+    padding: "13px 18px",
+    "& b": {
       fontSize: 20,
       fontWeight: 800,
     },
   },
   rightSideBlockItem: {
-    cursor: 'pointer',
-    '& .MuiTypography-body1': {
+    cursor: "pointer",
+    "& .MuiTypography-body1": {
       fontWeight: 700,
     },
-    '& .MuiListItemAvatar-root': {
+    "& .MuiListItemAvatar-root": {
       minWidth: 50,
     },
-    '& .MuiListItemText-root': {
+    "& .MuiListItemText-root": {
       margin: 0,
     },
-    '&:hover': {
-      backgroundColor: '#edf3f6',
+    "&:hover": {
+      backgroundColor: "#edf3f6",
     },
-    '& a': {
-      color: 'inherit',
-      textDecoration: 'none'
+    "& a": {
+      color: "inherit",
+      textDecoration: "none",
     },
-
   },
   addForm: {
     padding: 20,
   },
   addFormBody: {
-    display: 'flex',
-    width: '100%',
+    display: "flex",
+    width: "100%",
   },
   addFormBottom: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  }, 
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
   addFormBottomActions: {
     marginTop: 10,
     paddingLeft: 70,
   },
   addFormTextarea: {
-    width: '100%',
+    width: "100%",
     border: 0,
     fontSize: 20,
-    outline: 'none',
-    fontFamily: 'inherit',
-    resize: 'none',
+    outline: "none",
+    fontFamily: "inherit",
+    resize: "none",
   },
   addFormBottomLine: {
     height: 12,
-    backgroundColor: '#E6ECF0',
+    backgroundColor: "#E6ECF0",
   },
   addFormCircleProgress: {
-    position: 'relative',
+    position: "relative",
     width: 20,
     height: 20,
-    margin: '0 10px',
-    '& .MuiCircularProgress-root': {
-      position: 'absolute',
+    margin: "0 10px",
+    "& .MuiCircularProgress-root": {
+      position: "absolute",
     },
   },
   addFormBottomRight: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
   },
 }));

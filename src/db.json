@@ -1,149 +1,24 @@
 {
   "tweets": [
     {
-      "_id": "627bdf1d569dc666c40493a9",
-      "text": "Tsst tewstttttttew sttttttt test test test test test vefef test efefwefsafsfs testfefef.",
-      "user": {
-        "fullname": "TEST test test",
-        "username": "test",
-        "avatarUrl": "https://www.google.com/imgres?imgurl=https%3A%2F%2Ffunpick.ru%2Fwp-content%2Fuploads%2F2018%2F02%2FAva-pats-12.jpg&imgrefurl=https%3A%2F%2Ffunpick.ru%2Favatarki%2Fkartinki-na-avu-dlya-patsanov%2F&tbnid=EKAh9QPoEKsjFM&vet=12ahUKEwjT6Z3KzeH3AhXUzyoKHfWwCsMQMygEegUIARDkAQ..i&docid=nNb_ZP25l3YIfM&w=698&h=909&q=%D1%84%D0%BE%D1%82%D0%BE%20%D0%B0%D0%B2%D0%B0&client=opera&ved=2ahUKEwjT6Z3KzeH3AhXUzyoKHfWwCsMQMygEegUIARDkAQ"
-      }
-    },
-    {
-      "_id": "627bdf1dcf38d66258456cd9",
-      "text": "Elit sint incididunt officia est. Eu exercitation ut ex adipisicing nisi anim elit.",
-      "user": {
-        "fullname": "Monica Hyde",
-        "username": "lindsay",
-        "avatarUrl": "https://source.unsplash.com/random/100x100?4"
-      }
-    },
-    {
-      "_id": "627bdf1d59568ae7597e7055",
-      "text": "Culpa ipsum magna in ipsum exercitation. Veniam deserunt ex labore fugiat sit aliquip eu et ut veniam eiusmod.",
-      "user": {
-        "fullname": "Francesca Eaton",
-        "username": "snow",
-        "avatarUrl": "https://source.unsplash.com/random/100x100?4"
-      }
-    },
-    {
-      "_id": "627bdf1dc6245f025cccc4a8",
-      "text": "Nisi amet irure do fugiat do qui laboris magna mollit sit irure mollit minim cillum. Quis non nisi duis consequat veniam.",
-      "user": {
-        "fullname": "Nixon Day",
-        "username": "sasha",
-        "avatarUrl": "https://source.unsplash.com/random/100x100?2"
-      }
-    },
-    {
-      "_id": "627bdf1d0c3b569e6fbe93db",
-      "text": "Cillum labore qui nostrud incididunt ad sint consectetur ut. Enim deserunt nulla consequat cupidatat do quis occaecat deserunt ipsum ipsum fugiat enim.",
-      "user": {
-        "fullname": "Imogene Ayers",
-        "username": "nelda",
-        "avatarUrl": "https://source.unsplash.com/random/100x100?3"
-      }
-    },
-    {
-      "id": "100",
-      "_id": "627bdf1d569dc666c40493a9",
-      "text": "POSTMAN POSTMAN POSTMAN POSTMAN test test test test vefef test efefwefsafsfs testfefef.",
-      "user": {
-        "fullname": "TEST POSTMAN",
-        "username": "test",
-        "avatarUrl": "https://www.google.com/imgres?imgurl=https%3A%2F%2Ffunpick.ru%2Fwp-content%2Fuploads%2F2018%2F02%2FAva-pats-12.jpg&imgrefurl=https%3A%2F%2Ffunpick.ru%2Favatarki%2Fkartinki-na-avu-dlya-patsanov%2F&tbnid=EKAh9QPoEKsjFM&vet=12ahUKEwjT6Z3KzeH3AhXUzyoKHfWwCsMQMygEegUIARDkAQ..i&docid=nNb_ZP25l3YIfM&w=698&h=909&q=%D1%84%D0%BE%D1%82%D0%BE%20%D0%B0%D0%B2%D0%B0&client=opera&ved=2ahUKEwjT6Z3KzeH3AhXUzyoKHfWwCsMQMygEegUIARDkAQ"
-      }
-    },
-    {
-      "_id": "itcbuk1hdx",
-      "text": "jhfsdrfvhdfjvdjr l drgvkdnhrkgvdhrklgvdhkl rhklrhnfgdkrjfgdkhfgdkrhnk,dhnrfkdh hkrfkdjrhnfkdshnrfksdr",
+      "_id": "va0elknmkz",
+      "text": "first tweet first tweet first tweet first tweet first tweet first tweet first tweet first tweet first tweet first tweetfirst tweet first tweet first tweet first tweet",
       "user": {
         "fullname": "Test",
         "username": "lindsay",
         "avatarUrl": "https://source.unsplash.com/random/100x100?5"
       },
-      "id": "-ostMja"
+      "id": 1
     },
     {
-      "_id": "phboan1ly3f",
-      "text": "necb",
+      "_id": "2j7thi5x83a",
+      "text": "222222222  222222222  222222222  222222222 ",
       "user": {
         "fullname": "Test",
         "username": "lindsay",
         "avatarUrl": "https://source.unsplash.com/random/100x100?5"
       },
-      "id": "vVHEqPF"
-    },
-    {
-      "_id": "gbwkist52h8",
-      "text": "fefefefefefefe",
-      "user": {
-        "fullname": "Test",
-        "username": "lindsay",
-        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
-      },
-      "id": "nAgv9-r"
-    },
-    {
-      "_id": "nkcfmhbxcd",
-      "text": "rggrgr",
-      "user": {
-        "fullname": "Test",
-        "username": "lindsay",
-        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
-      },
-      "id": "w4a4eVi"
-    },
-    {
-      "_id": "sebzskyfpyd",
-      "text": "wdwdwdw",
-      "user": {
-        "fullname": "Test",
-        "username": "lindsay",
-        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
-      },
-      "id": "ZGQFlDF"
-    },
-    {
-      "_id": "aspltfcfijw",
-      "text": "efgwefwfwfe",
-      "user": {
-        "fullname": "Test",
-        "username": "lindsay",
-        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
-      },
-      "id": "nqrpQrZ"
-    },
-    {
-      "_id": "pyebvu4gueb",
-      "text": "regegege",
-      "user": {
-        "fullname": "Test",
-        "username": "lindsay",
-        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
-      },
-      "id": "maCk5Zh"
-    },
-    {
-      "_id": "up09ed7jx1k",
-      "text": "vbdsvssvsvds",
-      "user": {
-        "fullname": "Test",
-        "username": "lindsay",
-        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
-      },
-      "id": "k_U5yfF"
-    },
-    {
-      "_id": "bha3u4m47hm",
-      "text": "fewfewfwfw",
-      "user": {
-        "fullname": "Test",
-        "username": "lindsay",
-        "avatarUrl": "https://source.unsplash.com/random/100x100?5"
-      },
-      "id": "gogA_XU"
+      "id": 2
     }
   ],
   "themes": [
