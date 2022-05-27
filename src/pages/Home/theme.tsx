@@ -1,4 +1,4 @@
-import { makeStyles, Theme } from "@material-ui/core";
+import { colors, makeStyles, Theme } from "@material-ui/core";
 import grey from "@material-ui/core/colors/grey";
 
 export const useHomeStyles = makeStyles((theme: Theme) => ({
@@ -111,6 +111,17 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
     height: theme.spacing(6.5),
     marginRight: 15,
   },
+
+  tweetHeader: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
+
+  tweetContent: {
+    flex: 1
+  },
+
   tweetFooter: {
     display: "flex",
     justifyContent: "space-between",
@@ -228,4 +239,26 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     alignItems: "center",
   },
+
+  sideProfile: {
+    display: 'flex',
+    alignItems: 'center',
+    position: 'fixed',
+    bottom: 30,
+    padding: '10px 15px',
+    width: 260,
+    borderRadius: 50,
+    cursor: 'pointer',
+    '&:hover': {
+      backgroundColor: colors.lightBlue[50],
+    },
+  },
+  sideProfileInfo: {
+    flex: 1,
+    marginLeft: 10,
+    '& b': {
+      fontSize: 16,
+    },
+  },
+
 }));

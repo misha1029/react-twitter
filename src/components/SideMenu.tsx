@@ -12,6 +12,7 @@ import { AddTweetForm } from './AddTweetForm';
 import CreateIcon from '@material-ui/icons/Create';
 import { ModalBlock } from './ModalBlock';
 import { Link } from 'react-router-dom';
+import { UserSideProfile } from './UserSideProfile';
 
 
 interface SideMenuProps {
@@ -34,7 +35,9 @@ export const SideMenu: React.FC<SideMenuProps> = ({
 
 
   return (
-    <ul className={classes.sideMenuList}>
+
+    <>
+        <ul className={classes.sideMenuList}>
       <li className={classes.sideMenuListItem}>
       <Link to='/home'>
       <IconButton className={classes.logo} aria-label="" color="primary">
@@ -124,5 +127,7 @@ export const SideMenu: React.FC<SideMenuProps> = ({
         </ModalBlock>
       </li>
     </ul>
+    <UserSideProfile classes={classes} />
+    </>
   );
 };

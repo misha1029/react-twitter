@@ -11,13 +11,13 @@ import {
   selectIsTweetLoading,
   selectTweetData,
 } from "../store/ducks/tweet/selectors";
-import { Tweet } from "./Tweet";
 import { Avatar, IconButton, Paper, Typography } from "@material-ui/core";
 import classNames from "classnames";
 import CommentIcon from "@material-ui/icons/ChatBubbleOutlineOutlined";
 import RepostIcon from "@material-ui/icons/RepeatOutlined";
 import LikeIcon from "@material-ui/icons/FavoriteBorderOutlined";
 import ShareIcon from "@material-ui/icons/ReplyOutlined";
+import format from 'date-fns/format'
 
 export const FullTweet: React.FC = (): React.ReactElement | null => {
   const classes = useHomeStyles();
@@ -75,7 +75,7 @@ export const FullTweet: React.FC = (): React.ReactElement | null => {
         </Typography>
         <div className={classes.infoTweet}>
           <div className={classes.text}>Перевести твит</div>
-          <div className={classes.info}>9:10 PM - 20 сент. 2022г. - Twitter for Android</div>
+          <div className={classes.info}>{format(new Date(tweetData.createdAt), 'H:mm')} - {format(new Date(tweetData.createdAt), 'dd MMM yyyy')} - Twitter for Android</div>
         </div>
 
         <div className={classes.FulltweetFooter}>
