@@ -45,103 +45,44 @@ export const Home = (): React.ReactElement => {
     dispatch(fetchTweets());
     dispatch(fetchTags());
   }, [dispatch]);
-
+  
   return (
-    <Container className={classes.wrapper} maxWidth="lg">
-      <Grid container spacing={3}>
-        <Grid sm={1} md={3} item>
-          <SideMenu classes={classes} />
-        </Grid>
-        <Grid sm={8} md={6} item>
-          <Paper className={classes.tweetsWrapper} variant="outlined">
-            <Paper className={classes.tweetsHeader} variant="outlined">
-              <Route path="/home/:any">
-                <BackButton />
-              </Route>
+    <Paper className={classes.tweetsWrapper} variant="outlined">
+      <Paper className={classes.tweetsHeader} variant="outlined">
+        <Route path="/home/:any">
+          <BackButton />
+        </Route>
 
-              <Route path={["/home", "/home/search"]} exact>
-                <Typography variant="h6">Твиты</Typography>
-              </Route>
-              <Route path="/home/tweet">
-                <Typography variant="h6">Твитнуть</Typography>
-              </Route>
-            </Paper>
+        <Route path={['/home', '/home/search']} exact>
+          <Typography variant="h6">Твиты</Typography>
+        </Route>
 
-            <Route path={["/home", "/home/search"]} exact>
-              <Paper>
-                <div className={classes.addForm}>
-                  <AddTweetForm classes={classes} />
-                </div>
-                <div className={classes.addFormBottomLine} />
-              </Paper>
-            </Route>
-            <Route path="/home" exact>
-              {isLoading ? (
-                <div className={classes.tweetsCentred}>
-                  <CircularProgress />
-                </div>
-              ) : (
-                tweets.map((tweet) => (
-                  <Tweet key={tweet._id} classes={classes} {...tweet} />
-                ))
-              )}
-            </Route>
-            <Route path="/home/tweet/:id" component={FullTweet} exact />
+        <Route path="/home/tweet">
+          <Typography variant="h6">Твитнуть</Typography>
+        </Route>
+      </Paper>
 
-          </Paper>
-        </Grid>
-        <Grid sm={3} md={3} item>
-          <div className={classes.rightSide}>
-            <SearchTextField
-              variant="outlined"
-              placeholder="Поиск по Твиттеру"
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
-              }}
-              fullWidth
-            />
-            <Tags classes={classes} />
-            <Paper className={classes.rightSideBlock}>
-              <Paper
-                className={classes.rightSideBlockHeader}
-                variant="outlined"
-              >
-                <b>Кого читать</b>
-              </Paper>
-              <List>
-                <ListItem className={classes.rightSideBlockItem}>
-                  <ListItemAvatar>
-                    <Avatar
-                      alt="Remy Sharp"
-                      src="https://pbs.twimg.com/profile_images/1267938486566428673/US6KRPbA_normal.jpg"
-                    />
-                  </ListItemAvatar>
-                  <ListItemText
-                    primary="Nori Norton"
-                    secondary={
-                      <Typography
-                        component="span"
-                        variant="body2"
-                        color="textSecondary"
-                      >
-                        @Norton1
-                      </Typography>
-                    }
-                  />
-                  <Button color="primary">
-                    <PersonAddIcon />
-                  </Button>
-                </ListItem>
-                <Divider component="li" />
-              </List>
-            </Paper>
+      <Route path={['/home', '/home/search']} exact>
+        <Paper>
+          <div className={classes.addForm}>
+            <AddTweetForm classes={classes} />
           </div>
-        </Grid>
-      </Grid>
-    </Container>
+          <div className={classes.addFormBottomLine} />
+        </Paper>
+      </Route>
+
+      <Route path="/home" exact>
+        {isLoading ? (
+          <div className={classes.tweetsCentred}>
+            <CircularProgress />
+          </div>
+        ) : (
+          tweets.map((tweet) => <Tweet key={tweet._id} classes={classes} {...tweet} />)
+        )}
+      </Route>
+
+      <Route path="/home/tweet/:id" component={FullTweet} exact />
+    </Paper>
   );
 };
+
