@@ -65,7 +65,7 @@ export const Tweet: React.FC<TweetProps> = ({
               <span className={classes.tweetUserName}>·</span>&nbsp;
               <span className={classes.tweetUserName}>{formatDate(new Date(createdAt))}</span>
             </div>
-            <div>
+            <div className = {classes.tweetPopupMenu}>
               <IconButton
                 aria-label="more"
                 aria-controls="long-menu"

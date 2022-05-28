@@ -7,7 +7,8 @@ import MessageIcon from '@material-ui/icons/ModeCommentOutlined';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
-import { ModalBlock } from '../components/ModalBlock';
+import { ModalBlock } from '../../components/ModalBlock';
+import { LoginModal } from './components/LoginModal';
 
 export const useStylesSignIn = makeStyles((theme) => ({
   wrapper: {
@@ -79,6 +80,12 @@ export const useStylesSignIn = makeStyles((theme) => ({
   loginFormControl: {
     marginBottom: theme.spacing(2),
   },
+  errorMessage: {
+    marginBottom: 10,
+  },
+  errorMessageContainer: {
+    width: "100%",
+  }
 }));
 
 export const SignIn: React.FC = (): React.ReactElement => {
@@ -143,43 +150,7 @@ export const SignIn: React.FC = (): React.ReactElement => {
           <Button onClick={handleClickOpenSignIn} variant="outlined" color="primary" fullWidth>
             Войти
           </Button>
-          <ModalBlock
-            visible={visibleModal === 'signIn'}
-            onClose={handleCloseModal}
-            classes={classes}
-            title="Войти в аккаунт">
-            <FormControl className={classes.loginFormControl} component="fieldset" fullWidth>
-              <FormGroup aria-label="position" row>
-                <TextField
-                  className={classes.loginSideField}
-                  autoFocus
-                  id="email"
-                  label="E-Mail"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  variant="filled"
-                  type="email"
-                  fullWidth
-                />
-                <TextField
-                  className={classes.loginSideField}
-                  autoFocus
-                  id="password"
-                  label="Пароль"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  variant="filled"
-                  type="password"
-                  fullWidth
-                />
-                <Button onClick={handleCloseModal} variant="contained" color="primary" fullWidth>
-                  Войти
-                </Button>
-              </FormGroup>
-            </FormControl>
-          </ModalBlock>
+          <LoginModal open = {visibleModal === 'signIn'} onClose = {handleCloseModal}/>
           <ModalBlock
             visible={visibleModal === 'signUp'}
             onClose={handleCloseModal}
