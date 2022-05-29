@@ -1,6 +1,7 @@
 import { LoginFormProps } from "../../../pages/SignIn/components/LoginModal";
+import { RegisterFormProps } from "../../../pages/SignIn/components/RegisterModal";
 /* import { RegisterFormProps } from "../../../pages/SignIn/components/RegisterModal"; */
-import { FetchSignInActionInterface/* , FetchSignUpActionInterface */ ,SetUserDataActionInterface, SetUserLoadingStatusActionInterface, UserActionsType } from "./contracts/actionTypes";
+import { FetchSignInActionInterface/* , FetchSignUpActionInterface */ ,FetchSignUpActionInterface,SetUserDataActionInterface, SetUserLoadingStatusActionInterface, UserActionsType } from "./contracts/actionTypes";
 import { UserState } from "./contracts/state";
 
 
@@ -14,10 +15,10 @@ export const fetchSignIn = (payload: LoginFormProps): FetchSignInActionInterface
   payload,
 });
 
-/* export const fetchSignUp = (payload: RegisterFormProps): FetchSignUpActionInterface => ({
+export const fetchSignUp = (payload: RegisterFormProps): FetchSignUpActionInterface => ({
   type: UserActionsType.FETCH_SIGN_UP,
   payload,
-}); */
+});
 
 export const setUserLoadingStatus = (payload: UserState['status']): SetUserLoadingStatusActionInterface => ({
   type: UserActionsType.SET_LOADING_STATE,

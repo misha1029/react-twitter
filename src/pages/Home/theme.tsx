@@ -20,6 +20,10 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
     maxWidth: 230,
   },
   sideMenuListItem: {
+    '& a': {
+      color: 'inherit',
+      textDecoration: 'none',
+    },
     cursor: "pointer",
     "&:hover": {
       "& div": {
@@ -82,6 +86,7 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
 
   fullTweet: {
     padding: 20,
+    paddingBottom: 0,
   },
 
   fullTweetText: {

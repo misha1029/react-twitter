@@ -4,11 +4,8 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import SearchIcon from '@material-ui/icons/Search';
 import PeopleIcon from '@material-ui/icons/PeopleOutline';
 import MessageIcon from '@material-ui/icons/ModeCommentOutlined';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControl from '@material-ui/core/FormControl';
-import TextField from '@material-ui/core/TextField';
-import { ModalBlock } from '../../components/ModalBlock';
 import { LoginModal } from './components/LoginModal';
+import { RegisterModal } from './components/RegisterModal';
 
 export const useStylesSignIn = makeStyles((theme) => ({
   wrapper: {
@@ -151,55 +148,7 @@ export const SignIn: React.FC = (): React.ReactElement => {
             Войти
           </Button>
           <LoginModal open = {visibleModal === 'signIn'} onClose = {handleCloseModal}/>
-          <ModalBlock
-            visible={visibleModal === 'signUp'}
-            onClose={handleCloseModal}
-            classes={classes}
-            title="Создайте учетную запись">
-            <FormControl className={classes.loginFormControl} component="fieldset" fullWidth>
-              <FormGroup aria-label="position" row>
-                <TextField
-                  className={classes.registerField}
-                  autoFocus
-                  id="name"
-                  label="Имя"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  variant="filled"
-                  type="name"
-                  fullWidth
-                />
-                <TextField
-                  className={classes.registerField}
-                  autoFocus
-                  id="email"
-                  label="E-Mail"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  variant="filled"
-                  type="email"
-                  fullWidth
-                />
-                <TextField
-                  className={classes.registerField}
-                  autoFocus
-                  id="password"
-                  label="Пароль"
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  variant="filled"
-                  type="password"
-                  fullWidth
-                />
-                <Button variant="contained" color="primary" fullWidth>
-                  Далее
-                </Button>
-              </FormGroup>
-            </FormControl>
-          </ModalBlock>
+          <RegisterModal open = {visibleModal === 'signUp'} onClose = {handleCloseModal}/>
         </div>
       </section>
     </div>

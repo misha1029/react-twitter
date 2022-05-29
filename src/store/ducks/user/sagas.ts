@@ -2,7 +2,7 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { AuthApi } from '../../../services/api/authApi';
 import { LoadingStatus } from '../../types';
 import { setUserData, setUserLoadingStatus } from './actionCreators';
-import { FetchSignInActionInterface, /* FetchSignUpActionInterface, */ UserActionsType } from './contracts/actionTypes';
+import { FetchSignInActionInterface, FetchSignUpActionInterface, /* FetchSignUpActionInterface, */ UserActionsType } from './contracts/actionTypes';
 
 export function* fetchSignInRequest({ payload }: FetchSignInActionInterface) {
   try {
@@ -14,7 +14,7 @@ export function* fetchSignInRequest({ payload }: FetchSignInActionInterface) {
   }
 }
 
-/* export function* fetchSignUpRequest({ payload }: FetchSignUpActionInterface) {
+export function* fetchSignUpRequest({ payload }: FetchSignUpActionInterface) {
   try {
     yield put(setUserLoadingStatus(LoadingStatus.LOADING));
     yield call(AuthApi.signUp, payload);
@@ -22,9 +22,9 @@ export function* fetchSignInRequest({ payload }: FetchSignInActionInterface) {
   } catch (error) {
     yield put(setUserLoadingStatus(LoadingStatus.ERROR));
   }
-} */
+}
 
 export function* userSaga() {
   yield takeLatest(UserActionsType.FETCH_SIGN_IN, fetchSignInRequest);
-  /* yield takeLatest(UserActionsType.FETCH_SIGN_UP, fetchSignUpRequest); */
+  yield takeLatest(UserActionsType.FETCH_SIGN_UP, fetchSignUpRequest);
 }
