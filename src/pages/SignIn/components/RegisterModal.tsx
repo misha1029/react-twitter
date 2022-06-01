@@ -92,8 +92,8 @@ export const RegisterModal: React.FC<RegisterModalProps> = ({
               <FormGroup aria-label="position" row>
                 <FormField name="email" label="Почта" />
                 <FormField name="username" label="Логин" />
-                <FormField name="fullname" label="Ваше имя" />
-                <FormField name="password" label="Пароль" />
+                <FormField name="fullname" label="Ваше имя" type="password"/>
+                <FormField name="password" label="Пароль" type="password"/>
                 <FormField name="password2" label="Подтверждение пароля" />
                 <div className={classes.errorMessageContainer}>
                   <div className={classes.errorMessage}>

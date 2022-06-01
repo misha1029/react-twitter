@@ -18,6 +18,8 @@ import RepostIcon from "@material-ui/icons/RepeatOutlined";
 import LikeIcon from "@material-ui/icons/FavoriteBorderOutlined";
 import ShareIcon from "@material-ui/icons/ReplyOutlined";
 import format from 'date-fns/format'
+import { ImageList } from "./ImageList";
+import mediumZoom from "medium-zoom";
 
 export const FullTweet: React.FC = (): React.ReactElement | null => {
   const classes = useHomeStyles();
@@ -36,6 +38,12 @@ export const FullTweet: React.FC = (): React.ReactElement | null => {
       dispatch(setTweetData(undefined));
     };
   }, [dispatch, id]);
+
+  React.useEffect(() => {
+    if (!isLoading) {
+      mediumZoom('.tweet-images img');
+    }
+  }, [isLoading]);
 
   if (isLoading) {
     return (
@@ -72,6 +80,9 @@ export const FullTweet: React.FC = (): React.ReactElement | null => {
           gutterBottom
         >
           {tweetData.text}
+          <div className="tweet-images">
+              {tweetData.images && <ImageList classes={classes} images={tweetData.images} />}
+            </div>
         </Typography>
         <div className={classes.infoTweet}>
           <div className={classes.text}>Перевести твит</div>

@@ -1,15 +1,24 @@
-import { Action } from 'redux';
-import { AddTweetActionInterface, FetchAddTweetActionInterface, FetchTweetsActionInterface, SetAddFormStateActionInterface, SetTweetsActionInterface, SetTweetsLoadingStateActionInterface, TweetsActionsType } from './contracts/actionTypes';
-import { AddFormState, LoadingState, Tweet, TweetsState } from './contracts/state';
-
-
+import { LoadingStatus } from '../../types';
+import {
+  AddTweetActionInterface,
+  FetchAddTweetActionInterface,
+  FetchTweetsActionInterface,
+  SetAddFormStateActionInterface,
+  SetTweetsActionInterface,
+  SetTweetsLoadingStatusActionInterface,
+  TweetsActionsType,
+} from './contracts/actionTypes';
+import { AddFormState, Tweet, TweetsState } from './contracts/state';
 
 export const setTweets = (payload: TweetsState['items']): SetTweetsActionInterface => ({
   type: TweetsActionsType.SET_TWEETS,
   payload,
 });
 
-export const fetchAddTweet = (payload: string): FetchAddTweetActionInterface => ({
+export const fetchAddTweet = (payload: {
+  text: string;
+  images: string[];
+}): FetchAddTweetActionInterface => ({
   type: TweetsActionsType.FETCH_ADD_TWEET,
   payload,
 });
@@ -19,9 +28,9 @@ export const addTweet = (payload: Tweet): AddTweetActionInterface => ({
   payload,
 });
 
-export const setTweetsLoadingState = (
-  payload: LoadingState,
-): SetTweetsLoadingStateActionInterface => ({
+export const setTweetsLoadingStatus = (
+  payload: LoadingStatus,
+): SetTweetsLoadingStatusActionInterface => ({
   type: TweetsActionsType.SET_LOADING_STATE,
   payload,
 });
@@ -31,7 +40,6 @@ export const setAddFormState = (payload: AddFormState): SetAddFormStateActionInt
   payload,
 });
 
-
 export const fetchTweets = (): FetchTweetsActionInterface => ({
   type: TweetsActionsType.FETCH_TWEETS,
 });
@@ -39,7 +47,7 @@ export const fetchTweets = (): FetchTweetsActionInterface => ({
 export type TweetsActions =
   | SetTweetsActionInterface
   | FetchTweetsActionInterface
-  | SetTweetsLoadingStateActionInterface
+  | SetTweetsLoadingStatusActionInterface
   | FetchAddTweetActionInterface
   | AddTweetActionInterface
   | SetAddFormStateActionInterface;

@@ -1,8 +1,9 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { TweetsApi } from '../../../services/api/tweetsApi';
-import { addTweet, setAddFormState, setTweets, setTweetsLoadingState } from './actionCreators';
+import { LoadingStatus } from '../../types';
+import { addTweet, setAddFormState, setTweets, setTweetsLoadingStatus } from './actionCreators';
 import { FetchAddTweetActionInterface, TweetsActionsType } from './contracts/actionTypes';
-import { AddFormState, LoadingState, Tweet } from './contracts/state';
+import { AddFormState } from './contracts/state';
 
 export function* fetchTweetsRequest(): any {
   try {
@@ -10,13 +11,13 @@ export function* fetchTweetsRequest(): any {
     const items = yield call(TweetsApi.fetchTweets);
     yield put(setTweets(items));
   } catch (error) {
-    yield put(setTweetsLoadingState(LoadingState.ERROR));
+    yield put(setTweetsLoadingStatus(LoadingStatus.ERROR));
   }
 }
 
-export function* fetchAddTweetRequest({ payload: text}: FetchAddTweetActionInterface): any{
+export function* fetchAddTweetRequest({ payload}: FetchAddTweetActionInterface): any{
   try {
-    const item = yield call(TweetsApi.addTweet, text);
+    const item = yield call(TweetsApi.addTweet, payload);
     yield put(addTweet(item));
   } catch (error) {
     yield put(setAddFormState(AddFormState.ERROR));
@@ -29,4 +30,8 @@ export function* tweetsSaga() {
 }
 
 
+
+function setTweetsLoadingState(ERROR: LoadingStatus): any {
+  throw new Error('Function not implemented.');
+}
  

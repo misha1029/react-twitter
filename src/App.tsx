@@ -1,52 +1,51 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Route, Switch, useHistory } from "react-router-dom";
-import { Home } from "./pages/Home";
-import { SignIn } from "./pages/SignIn/index";
-import { AuthApi } from "./services/api/authApi";
-import { setUserData } from "./store/ducks/user/actionCreators";
-import { selectIsAuth } from "./store/ducks/user/selectors";
-import { Layout } from "./pages/Layout";
+import TwitterIcon from '@material-ui/icons/Twitter';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Route, Switch, useHistory } from 'react-router-dom';
+import { Home } from './pages/Home';
+import { useHomeStyles } from './pages/Home/theme';
+import { Layout } from './pages/Layout';
+import { SignIn } from './pages/SignIn';
+import { fetchUserData } from './store/ducks/user/actionCreators';
+import { selectIsAuth, selectUserStatus } from './store/ducks/user/selectors';
+import { LoadingStatus } from './store/types';
 
 function App() {
+  const classes = useHomeStyles();
   const history = useHistory();
+  const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
-  /*     const history = useHistory();
-    const dispatch = useDispatch();
-    const isAuth = useSelector(selectIsAuth);
-  
-    const checkAuth = async () => {
-      try {
-        const { data } = await AuthApi.getMe();
-        dispatch(setUserData(data));
-        // history.replace('/home');
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  
-    React.useEffect(() => {
-      checkAuth();
-    }, []);
-  
-    React.useEffect(() => {
-      if (isAuth) {
-        history.push('/home');
-      }
-    }, [isAuth]); */
+  const loadingStatus = useSelector(selectUserStatus);
+  const isReady = loadingStatus !== LoadingStatus.NEVER && loadingStatus !== LoadingStatus.LOADING;
 
-    React.useEffect(() => {
-      if (isAuth) {
-        history.push('/home');
-      }
-    }, [isAuth]);
+  React.useEffect(() => {
+    dispatch(fetchUserData());
+  }, [dispatch]);
+
+  React.useEffect(() => {
+    if (!isAuth && isReady) {
+      history.push('/signin');
+    } else {
+      history.push('/home');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAuth, isReady]);
+
+
+  if (!isReady) {
+    return (
+      <div className={classes.centered}>
+        <TwitterIcon color="primary" style={{ width: 80, height: 80 }} />
+      </div>
+    );
+  }
 
   return (
     <div className="App">
       <Switch>
-        <Route path="/signin" component={SignIn} />
+        <Route path="/signin" component={SignIn} exact />
         <Layout>
-          <Route path="/" component={Home} />
+          <Route path="/home" component={Home} />
         </Layout>
       </Switch>
     </div>
