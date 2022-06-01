@@ -11,6 +11,8 @@ import { useHomeStyles } from '../pages/Home/theme';
 import { Link, useHistory } from 'react-router-dom';
 import { formatDate } from '../utils/formatDate';
 import { ImageList } from './ImageList';
+import { useDispatch } from 'react-redux';
+import { removeTweet } from '../store/ducks/tweets/actionCreators';
 
 interface TweetProps {
   _id: string;
@@ -33,6 +35,7 @@ export const Tweet: React.FC<TweetProps> = ({
   images,
   createdAt
 }: TweetProps): React.ReactElement => {
+  const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const history = useHistory();
@@ -52,6 +55,13 @@ export const Tweet: React.FC<TweetProps> = ({
     event.stopPropagation();
     event.preventDefault();
     setAnchorEl(null);
+  };
+
+  const handleRemove = (event: React.MouseEvent<HTMLElement>): void => {
+    handleClose(event);
+    if (window.confirm('Вы действительно хотите удалить твит?')) {
+      dispatch(removeTweet(_id));
+    }
   };
 
 
@@ -91,7 +101,7 @@ export const Tweet: React.FC<TweetProps> = ({
                 <MenuItem onClick={handleClose}>
                   Редактировать
                 </MenuItem>
-                <MenuItem onClick={handleClose}>
+                <MenuItem onClick={handleRemove}>
                   Удалить твит
                 </MenuItem>
               </Menu>

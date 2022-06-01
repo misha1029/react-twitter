@@ -1,8 +1,8 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { TweetsApi } from '../../../services/api/tweetsApi';
 import { LoadingStatus } from '../../types';
-import { addTweet, setAddFormState, setTweets, setTweetsLoadingStatus } from './actionCreators';
-import { FetchAddTweetActionInterface, TweetsActionsType } from './contracts/actionTypes';
+import { addTweet, removeTweet, setAddFormState, setTweets, setTweetsLoadingStatus } from './actionCreators';
+import { FetchAddTweetActionInterface, RemoveTweetActionInterface, TweetsActionsType } from './contracts/actionTypes';
 import { AddFormState } from './contracts/state';
 
 export function* fetchTweetsRequest(): any {
@@ -24,14 +24,18 @@ export function* fetchAddTweetRequest({ payload}: FetchAddTweetActionInterface):
   }
 }
 
+export function* fetchRemoveTweetRequrest({ payload}: RemoveTweetActionInterface): any{
+  try {
+    yield call(TweetsApi.removeTweet, payload);
+  } catch (error) {
+    alert('Error')
+  }
+}
+
 export function* tweetsSaga() {
   yield takeLatest(TweetsActionsType.FETCH_TWEETS, fetchTweetsRequest);
   yield takeLatest(TweetsActionsType.FETCH_ADD_TWEET, fetchAddTweetRequest);
+  yield takeLatest(TweetsActionsType.REMOVE_TWEET, fetchRemoveTweetRequrest);
 }
 
-
-
-function setTweetsLoadingState(ERROR: LoadingStatus): any {
-  throw new Error('Function not implemented.');
-}
  
