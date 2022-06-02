@@ -81,7 +81,7 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
   tweetsHeader: {
     display: "flex",
     alignItems: "center",
-    justifyContent: 'space-between',
+    
     borderTop: "0",
     borderLeft: "0",
     borderRight: "0",

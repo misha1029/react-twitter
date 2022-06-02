@@ -24,12 +24,6 @@ interface Layout {
 
 export const Layout: React.FC<Layout> = ({ children }): React.ReactElement => {
   const classes = useHomeStyles();
-  const dispatch = useDispatch();
-
-  React.useEffect(() => {
-    dispatch(fetchTweets());
-    dispatch(fetchTags());
-  }, [dispatch]);
 
   return (
     <Container className={classes.wrapper} maxWidth="lg">

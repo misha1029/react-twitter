@@ -6,6 +6,7 @@ import { Home } from './pages/Home';
 import { useHomeStyles } from './pages/Home/theme';
 import { Layout } from './pages/Layout';
 import { SignIn } from './pages/SignIn';
+import { UserPage } from './pages/User';
 import { fetchUserData } from './store/ducks/user/actionCreators';
 import { selectIsAuth, selectUserStatus } from './store/ducks/user/selectors';
 import { LoadingStatus } from './store/types';
@@ -46,6 +47,7 @@ function App() {
         <Route path="/signin" component={SignIn} exact />
         <Layout>
           <Route path="/home" component={Home} />
+          <Route path="/user/:id" component={UserPage} exact />
         </Layout>
       </Switch>
     </div>
