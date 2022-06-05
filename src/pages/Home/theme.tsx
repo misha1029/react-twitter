@@ -19,9 +19,9 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
     fontSize: 36,
   },
   sideMenuList: {
-    position: "sticky",
+    position: 'sticky',
     top: 0,
-    listStyle: "none",
+    listStyle: 'none',
     padding: 0,
     margin: 0,
     maxWidth: 230,
@@ -31,49 +31,53 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
       color: 'inherit',
       textDecoration: 'none',
     },
-    cursor: "pointer",
-    "&:hover": {
-      "& div": {
-        backgroundColor: "rgba(29, 161, 242, 0.1)",
-        "& h6": {
+    cursor: 'pointer',
+    '&:hover': {
+      '& div': {
+        backgroundColor: 'rgba(29, 161, 242, 0.1)',
+        '& h6': {
           color: theme.palette.primary.main,
         },
-        "& svg path": {
+        '& svg path': {
           fill: theme.palette.primary.main,
         },
       },
     },
-
-    "& div": {
-      display: "inline-flex",
-      alignItems: "center",
-      position: "relative",
-      padding: "0 25px 0 20px",
+    '& div': {
+      display: 'inline-flex',
+      alignItems: 'center',
+      position: 'relative',
+      padding: '0 25px 0 20px',
       borderRadius: 30,
       height: 50,
       marginBottom: 15,
-      transition: "background-color 0.1s ease-in-out",
+      transition: 'background-color 0.1s ease-in-out',
     },
+
   },
   sideMenuListItemLabel: {
     fontWeight: 700,
     fontSize: 20,
     marginLeft: 15,
   },
+  
   sideMenuListItemIcon: {
     fontSize: 32,
     marginLeft: -5,
   },
+
   sideMenuTweetButton: {
     padding: theme.spacing(3.2),
     marginTop: theme.spacing(2),
   },
+
   tweetsWrapper: {
     borderRadius: 0,
-    height: "100%",
-    borderTop: "0",
-    borderBottom: "0",
+    minHeight: '100vh',
+    borderTop: '0',
+    borderBottom: '0',
   },
+
   tweetsCentred: {
     marginTop: 50,
     textAlign: "center",
@@ -325,6 +329,8 @@ export const useHomeStyles = makeStyles((theme: Theme) => ({
     backgroundColor: '#ff4d4d !important',
   },
 
+  userMenuTweetButton: {
 
+  }
 
 }));

@@ -103,10 +103,11 @@ import { FormField } from "../../../components/FormField";
 import * as yup from "yup";
 import { useStylesSignIn } from "../index";
 import { ModalBlock } from "../../../components/ModalBlock";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchSignIn } from "../../../store/ducks/user/actionCreators";
 import { selectUserStatus } from "../../../store/ducks/user/selectors";
 import { LoadingStatus } from "../../../store/types";
+import { Link } from "react-router-dom";
 
 interface LoginModalProps {
   open: boolean;
@@ -126,7 +127,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({
 
   const dispatch = useDispatch();
   const loadingStatus = useSelector(selectUserStatus);
-  
+
   const [errorMessage, setErrorMessage] = React.useState("");
 
   const LoginFormSchema = yup.object().shape({
@@ -144,12 +145,12 @@ export const LoginModal: React.FC<LoginModalProps> = ({
 
   const onSubmit = async (data: any) => {
     try {
-      dispatch(fetchSignIn(data))
+      dispatch(fetchSignIn(data));
       setErrorMessage("");
     } catch (error) {
       console.warn("Register error", error);
       if (error) {
-/*         setErrorMessage("Неверный логин или пароль"); */
+        /*         setErrorMessage("Неверный логин или пароль"); */
       }
     }
   };
@@ -158,10 +159,9 @@ export const LoginModal: React.FC<LoginModalProps> = ({
     if (loadingStatus === LoadingStatus.SUCCESS) {
       onClose();
     } else if (loadingStatus === LoadingStatus.ERROR) {
-      setErrorMessage('Неверный логин или пароль');
+      setErrorMessage("Неверный логин или пароль");
     }
   }, [loadingStatus]);
-
 
   return (
     <ModalBlock
@@ -182,25 +182,26 @@ export const LoginModal: React.FC<LoginModalProps> = ({
                 <FormField name="email" label="Почта" />
                 <FormField name="password" label="Пароль" />
                 <div className={classes.errorMessageContainer}>
-
-                    <div className={classes.errorMessage}>
-                      {errorMessage && (
-                        <Alert severity="error" className="">
-                          {errorMessage}
-                        </Alert>
-                      )}
+                  <div className={classes.errorMessage}>
+                    {errorMessage && (
+                      <Alert severity="error" className="">
+                        {errorMessage}
+                      </Alert>
+                    )}
                   </div>
                   <div>
-                    <Button
-                      disabled={
-                        !form.formState.isValid || form.formState.isSubmitting
-                      }
-                      type="submit"
-                      color="primary"
-                      variant="contained"
-                    >
-                      Войти
-                    </Button>
+                      <Button
+                        disabled={
+                          !form.formState.isValid ||
+                          form.formState.isSubmitting ||
+                          loadingStatus === LoadingStatus.LOADING
+                        }
+                        type="submit"
+                        color="primary"
+                        variant="contained"
+                      >
+                        Войти
+                      </Button>
                   </div>
                 </div>
               </FormGroup>

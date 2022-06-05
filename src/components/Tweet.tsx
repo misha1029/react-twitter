@@ -13,6 +13,7 @@ import { formatDate } from '../utils/formatDate';
 import { ImageList } from './ImageList';
 import { useDispatch } from 'react-redux';
 import { removeTweet } from '../store/ducks/tweets/actionCreators';
+import { User } from '../store/ducks/user/contracts/state';
 
 interface TweetProps {
   _id: string;
@@ -20,11 +21,7 @@ interface TweetProps {
   classes: ReturnType<typeof useHomeStyles>;
   createdAt: string;
   images?: string[];
-  user: {
-    fullname: string;
-    username: string;
-    avatarUrl: string;
-  };
+  user: User;
 }
 
 export const Tweet: React.FC<TweetProps> = ({
@@ -71,7 +68,7 @@ export const Tweet: React.FC<TweetProps> = ({
         <Avatar
           className={classes.tweetAvatar}
           alt={`Аватарка пользователя ${user.fullname}`}
-          src={user.avatarUrl}
+          /* src={user.avatarUrl} */
         />
         <div className={classes.tweetContent}>
           <div className={classes.tweetHeader}>

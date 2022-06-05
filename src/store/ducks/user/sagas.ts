@@ -2,7 +2,11 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { AuthApi } from '../../../services/api/authApi';
 import { LoadingStatus } from '../../types';
 import { setUserData, setUserLoadingStatus } from './actionCreators';
-import { FetchSignInActionInterface, FetchSignUpActionInterface, /* FetchSignUpActionInterface, */ UserActionsType } from './contracts/actionTypes';
+import {
+  FetchSignInActionInterface,
+  FetchSignUpActionInterface,
+  UserActionsType,
+} from './contracts/actionTypes';
 
 export function* fetchSignInRequest({ payload }: FetchSignInActionInterface) {
   try {

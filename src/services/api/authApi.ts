@@ -10,7 +10,7 @@ interface ResponseApi {
 
 export const AuthApi = {
   async verify(hash: string): Promise<ResponseApi> {
-    const { data } = await axios.get<ResponseApi>('/auth/verify?hash=' + hash);
+    const { data } = await axios.get<ResponseApi>("/auth/verify?hash=" + hash);
     return data;
   },
 
@@ -36,7 +36,7 @@ export const AuthApi = {
     return data;
   },
   async getUserInfo(userId: string): Promise<ResponseApi> {
-    const { data } = await axios.get<ResponseApi>('/users/' + userId);
+    const { data } = await axios.get<ResponseApi>("/users/" + userId);
     return data;
   },
 };

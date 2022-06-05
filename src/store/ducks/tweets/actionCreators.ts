@@ -29,11 +29,6 @@ export const addTweet = (payload: Tweet): AddTweetActionInterface => ({
   payload,
 });
 
-export const removeTweet = (payload: string): RemoveTweetActionInterface => ({
-  type: TweetsActionsType.REMOVE_TWEET,
-  payload,
-});
-
 export const setTweetsLoadingStatus = (
   payload: LoadingStatus,
 ): SetTweetsLoadingStatusActionInterface => ({
@@ -43,6 +38,11 @@ export const setTweetsLoadingStatus = (
 
 export const setAddFormState = (payload: AddFormState): SetAddFormStateActionInterface => ({
   type: TweetsActionsType.SET_ADD_FORM_STATE,
+  payload,
+});
+
+export const removeTweet = (payload: string): RemoveTweetActionInterface => ({
+  type: TweetsActionsType.REMOVE_TWEET,
   payload,
 });
 

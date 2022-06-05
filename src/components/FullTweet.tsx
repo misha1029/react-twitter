@@ -1,7 +1,7 @@
 import { CircularProgress } from "@material-ui/core";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useHomeStyles } from "../pages/Home/theme";
 import {
   fetchTweetData,
@@ -60,10 +60,10 @@ export const FullTweet: React.FC = (): React.ReactElement | null => {
           <Avatar
             className={classes.tweetAvatar}
             alt={`Аватарка пользователя ${tweetData.user.fullname}`}
-            src={tweetData.user.avatarUrl}
+            /* src={tweetData.user.avatarUrl} */
           />
           <Typography>
-            <b>{tweetData.user.fullname}</b>&nbsp;
+            <Link to = {`/user/${tweetData.user._id}`}><b>{tweetData.user.fullname}</b>&nbsp;</Link>
             <div>
               <span className={classes.tweetUserName}>
                 @{tweetData.user.username}

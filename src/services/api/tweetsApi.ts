@@ -1,4 +1,4 @@
-import {axios} from '../../core/axios';
+import { axios } from '../../core/axios';
 import { Tweet } from '../../store/ducks/tweets/contracts/state';
 
 interface Response<T> {
@@ -7,8 +7,10 @@ interface Response<T> {
 }
 
 export const TweetsApi = {
-  async fetchTweets(): Promise<Tweet[]> {
-    const { data } = await axios.get<Response<Tweet[]>>('/tweets');
+  async fetchTweets(userId?: string): Promise<Tweet[]> {
+    const { data } = await axios.get<Response<Tweet[]>>(
+      userId ? `/tweets/user/${userId}` : '/tweets',
+    );
     return data.data;
   },
   async fetchTweetData(id: string): Promise<Tweet> {

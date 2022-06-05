@@ -25,14 +25,20 @@ function App() {
     dispatch(fetchUserData());
   }, [dispatch]);
 
-  React.useEffect(() => {
+/*   React.useEffect(() => {
     if (!isAuth && isReady) {
       history.push('/signin');
     } else if (history.location.pathname === '/') {
       history.push('/home');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isAuth, isReady]);
+    
+  }, [isAuth, isReady]); */
+  React.useEffect(() => {
+    if (isAuth) {
+      history.push('/home');
+    }
+  }, [isAuth]);
 
   if (!isReady) {
     return (
