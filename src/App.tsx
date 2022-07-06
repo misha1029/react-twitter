@@ -18,6 +18,7 @@ function App() {
   const history = useHistory();
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
+  console.log(isAuth)
   const loadingStatus = useSelector(selectUserStatus);
   const isReady = loadingStatus !== LoadingStatus.NEVER && loadingStatus !== LoadingStatus.LOADING;
 
@@ -25,20 +26,21 @@ function App() {
     dispatch(fetchUserData());
   }, [dispatch]);
 
-/*   React.useEffect(() => {
+  React.useEffect(() => {
     if (!isAuth && isReady) {
       history.push('/signin');
     } else if (history.location.pathname === '/') {
       history.push('/home');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    
-  }, [isAuth, isReady]); */
-  React.useEffect(() => {
+  }, [isAuth, isReady]);
+
+
+/*   React.useEffect(() => {
     if (isAuth) {
       history.push('/home');
     }
-  }, [isAuth]);
+  }, [isAuth]); */
 
   if (!isReady) {
     return (

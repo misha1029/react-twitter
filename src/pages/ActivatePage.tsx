@@ -2,7 +2,9 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { AuthApi } from '../services/api/authApi';
 import {
-  setUserLoadingStatus
+  fetchUserData,
+  setUserData,
+  setUserLoadingStatus,
 } from '../store/ducks/user/actionCreators';
 import { LoadingStatus } from '../store/types';
 

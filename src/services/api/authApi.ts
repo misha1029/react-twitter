@@ -1,7 +1,6 @@
-import { axios } from "../../core/axios";
-import { LoginFormProps } from "../../pages/SignIn/components/LoginModal";
-import { RegisterFormProps } from "../../pages/SignIn/components/RegisterModal";
-/* import { RegisterFormProps } from '../../pages/SignIn/components/RegisterModal'; */
+import { axios } from '../../core/axios';
+import { LoginFormProps } from '../../pages/SignIn/components/LoginModal';
+import { RegisterFormProps } from '../../pages/SignIn/components/RegisterModal';
 
 interface ResponseApi {
   status: string;
@@ -10,19 +9,18 @@ interface ResponseApi {
 
 export const AuthApi = {
   async verify(hash: string): Promise<ResponseApi> {
-    const { data } = await axios.get<ResponseApi>("/auth/verify?hash=" + hash);
+    const { data } = await axios.get<ResponseApi>('/auth/verify?hash=' + hash);
     return data;
   },
-
   async signIn(postData: LoginFormProps): Promise<ResponseApi> {
-    const { data } = await axios.post<ResponseApi>("/auth/login", {
+    const { data } = await axios.post<ResponseApi>('/auth/login', {
       username: postData.email,
       password: postData.password,
     });
     return data;
   },
   async signUp(postData: RegisterFormProps): Promise<ResponseApi> {
-    const { data } = await axios.post<ResponseApi>("/auth/register", {
+    const { data } = await axios.post<ResponseApi>('/auth/register', {
       email: postData.email,
       username: postData.username,
       fullname: postData.fullname,
@@ -32,11 +30,11 @@ export const AuthApi = {
     return data;
   },
   async getMe(): Promise<ResponseApi> {
-    const { data } = await axios.get<ResponseApi>("/users/me");
+    const { data } = await axios.get<ResponseApi>('/users/me');
     return data;
   },
   async getUserInfo(userId: string): Promise<ResponseApi> {
-    const { data } = await axios.get<ResponseApi>("/users/" + userId);
+    const { data } = await axios.get<ResponseApi>('/users/' + userId);
     return data;
   },
 };
